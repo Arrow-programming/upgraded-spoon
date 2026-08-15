@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<!-- 
+
+osajfiblhuslerin
+
+
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--Import two fonts, Lato (my favorite) for text, and Google Sans Code for the headers and code  -->
+        <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Lato&family=Material+Icons&display=swap'>
+        <!--Import google icons-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!--Import syntax highlighting for the code-->
+        <link rel="stylesheet" id="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/dracula.min.css"/>
+        <title>Workspace</title>
+        <!--Main styling-->
+        <style>
+    		* {
+    		    margin: 0px 0px;
+    			margin: none;
+    			padding: 0px;
+    			padding: none;
+    			transition: 1s;
+    			overflow-x: hidden;
+    			box-sizing: border-box;
+    			scroll-behavior: smooth;
+    			font-family: 'Lato';
+    			line-height: 1.5em;
+    		}
+    		
+    	    ::selection { background-color: rgba(136, 240, 143, 0.5); } 
+        </style>
+        <!--Content-->
+        <style>
+            .progress-container {
+                width: 100%;
+                height: 5px; 
+                background: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 99; 
+            }
+            
+            .progress-bar {
+                height: 5px; 
+                background: #4F98CA; 
+                width: 0%; 
+            }
+
+
+            
+            #content {
+                margin-top: 70px;
+                margin-left: 30px;
+                margin-right: 45px;
+            }
+            section {    
+                
+            }
+            h1 {
+		        font-size: 24px;
+		        
+		        
+		    }
+		    h2 {
+		        font-size: 34px;
+		        color: #4F98CA;
+		        
+		    }
+		    h3 {
+		        font-size: 20px;
+		        color: #272727;
+		        font-weight: normal;
+		    }
+		    h4 {
+		        font-size: 20px;
+		        font-family: 'Google Sans Code';
+		        color: rgb(35, 35, 35);
+		    }
+		    h5 {
+		        text-indent: 20px;
+		        font-size: 17px;
+		        font-family: 'Google Sans Code';
+		        color: rgb(105, 97, 224);
+		    }
+		    p {
+		        text-indent: 20px;
+		        font-size: 17px;
+		        color: #272727;
+		    }
+		    
+		    .info {
+                margin-top: 0px;
+            }
+            .info p {
+                font-size: 15px;
+            }
+            
+		    
+		    .javascript {
+		        font-family: 'Google Sans Code';
+		    }
+		    .hljs {
+                margin: 10px;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+            
+                        
+            .hljs {
+                display: block;
+                overflow-x: auto;
+                /*padding: 1.5em;*/
+                padding: 1em;
+                background: #282a36; 
+                color: #f8f8f2;
+                border-radius: 8px;
+                font-family: 'Google Sans Code', 'Fira Code', monospace;
+                line-height: 1.5;
+            }
+            
+            
+            .hljs-keyword, 
+            .hljs-selector-tag, 
+            .hljs-literal {
+                color: #ff79c6;
+                font-weight: bold;
+            }
+            
+            
+            .hljs-title, 
+            .hljs-section,
+            .hljs-function .hljs-title {
+                color: #50fa7b; 
+            }
+            
+            
+            .hljs-string, 
+            .hljs-symbol, 
+            .hljs-template-tag, 
+            .hljs-template-variable {
+                color: #f1fa8c; 
+            }
+            
+            
+            .hljs-attr, 
+            .hljs-variable, 
+            .hljs-template-variable,
+            .hljs-type {
+                color: #8be9fd; 
+            }
+            
+            
+            .hljs-name, 
+            .hljs-built_in, 
+            .hljs-addition {
+                color: #bd93f9;
+                
+            }
+            
+            
+            .hljs-comment, 
+            .hljs-quote, 
+            .hljs-deletion, 
+            .hljs-meta {
+                /*color: #6272a4;*/
+                color: rgb(133, 245, 108);
+                font-style: italic;
+            }
+            
+            .hljs-emphasis {
+                font-style: italic;
+            }
+            .hljs-strong {
+                font-weight: bold;
+            }
+
+            
+            #ht {
+                font-family: 'Google Sans Code'; 
+                color: rgb(112, 250, 105);
+            }
+            
+            ul {
+                display: list-item;
+                list-style-type: circle;
+                margin-left: 20px;
+            }
+            
+            /* My custom bullet points */
+            ul.bullet {
+                list-style-type: none;
+                padding: 0 40px;
+                text-align: left;
+                color: "";
+            }
+            ul.bullet li {
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: 5px;
+            }
+            ul.bullet li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 10px;
+                height: 10px;
+                border-radius: 3px;
+                border: 2px solid #272727;
+                background-color: "";
+            }
+            
+            a {
+                position: relative;
+                color: rgb(100, 220, 100);
+                text-decoration: none;
+            	transition: all 400ms ease;
+            }
+            
+            a::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: rgb(35, 35, 35);
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.3s ease-in-out 0s;
+                cursor: pointer;
+            }
+            
+            a:hover::before {
+                visibility: visible;
+                transform: scaleX(1);
+                
+            }
+            a:hover{
+                color: #50D890;
+            }
+            /*
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: rgb(40, 40, 40);
+                border-radius: 4px;
+            }
+            */
+        </style>
+        <!--The icon background-->
+        <style>
+            .shapes h6 {
+                overflow: hidden;
+                position: relative;
+                margin: none;
+                text-indent: none !important;
+                padding: none;
+                
+                
+            }
+            .material-symbols-outlined {
+                padding: none !important;
+                overflow: hidden;
+                transform: rotate(0deg);
+                color: #4F98CA;
+                font-variation-settings:
+                  'FILL' 0,
+                  'wght' 400,
+                  'GRAD' 0,
+                  'opsz' 24
+            }
+            .shapes {
+                overflow: hidden;
+                opacity: 0.1;
+                border-radius: 10px;
+                width: 120%;
+                top: -15px;
+                position: absolute;
+                margin: 0;
+                margin-left: -40px;
+            }
+        </style>
+        <!--The scroll to top button-->
+        <style>
+            #scrollParent {
+                position: fixed;
+                top: 90%;
+                left: 90%;
+            }
+            .scrollToTop {
+                border-radius: 100px;
+                width: 50px;
+                height: 50px;
+                border: none;
+                background: none;
+            }
+            .scrollToTop:hover{
+                transform: translate(0px, -10px);
+            }
+            #scrollParent .material-symbols-outlined {
+                overflow: hidden;
+                font-size: 35px;
+                color: #4F98CA;
+                font-variation-settings:
+                  'FILL' 0,
+                  'wght' 400,
+                  'GRAD' 0,
+                  'opsz' 24
+            }
+        </style>
+        <!--The table of contents-->
+        <style>
+            #tocTab {
+                position: fixed;
+                top: 50%;
+                right: 0px;
+                transform: translateY(-50%);
+                z-index: 101;
+                background: #272727;
+                color: #88F08F;
+                border: none;
+                border-radius: 8px 0px 0px 8px;
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                padding: 18px 8px;
+                font-family: 'Google Sans Code';
+                font-size: 13px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                box-shadow: -2px 2px 8px rgba(0,0,0,0.15);
+            }
+            #tocTab:hover {
+                background: #4F98CA;
+                color: #ffffff;
+            }
+            #tocPanel {
+                position: fixed;
+                top: 0px;
+                right: -320px;
+                width: 300px;
+                height: 100%;
+                background: #272727;
+                z-index: 100;
+                box-shadow: -4px 0px 15px rgba(0,0,0,0.25);
+                overflow-y: auto;
+                padding: 70px 20px 40px 20px;
+            }
+            #tocPanel.open {
+                right: 0px;
+            }
+            #tocPanel::-webkit-scrollbar {
+                width: 6px;
+            }
+            #tocPanel::-webkit-scrollbar-thumb {
+                background-color: #4F98CA;
+                border-radius: 4px;
+            }
+            #tocPanel h3.toc-title {
+                font-family: 'Google Sans Code';
+                color: #88F08F;
+                font-size: 18px;
+                text-indent: 0px;
+                margin-bottom: 15px;
+            }
+            .toc-group {
+                margin-bottom: 16px;
+            }
+            .toc-group-label {
+                display: block;
+                font-family: 'Google Sans Code';
+                color: #4F98CA;
+                font-size: 15px;
+                text-decoration: none;
+                padding-bottom: 4px;
+                border-bottom: 1px solid rgba(79, 152, 202, 0.3);
+                margin-bottom: 6px;
+            }
+            .toc-group-label:hover {
+                color: #50D890;
+            }
+            .toc-group-label::before {
+                content: none;
+            }
+            ul.toc-sublist {
+                list-style-type: none;
+                margin-left: 0px;
+                padding: 0px;
+            }
+            ul.toc-sublist li {
+                margin: 0px;
+                padding: 0px;
+            }
+            ul.toc-sublist li a {
+                display: block;
+                font-size: 13px;
+                color: #cfcfcf;
+                text-decoration: none;
+                padding: 4px 0px 4px 10px;
+                line-height: 1.3em;
+            }
+            ul.toc-sublist li a::before {
+                background-color: transparent;
+            }
+            ul.toc-sublist li a:hover {
+                color: #50D890;
+            }
+            #tocOverlay {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.3);
+                z-index: 99;
+                display: none;
+            }
+            #tocOverlay.open {
+                display: block;
+            }
+            .category-section {
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+            .category-heading {
+                border-left: 4px solid #4F98CA;
+                padding-left: 12px;
+                margin-bottom: 10px;
+            }
+            .category-heading h3 {
+                font-family: 'Google Sans Code';
+                color: #272727;
+                font-size: 22px;
+                text-indent: 0px;
+            }
+
+            .quiz-card {
+                border: 1px solid rgba(0,0,0,0.1);
+                border-radius: 10px;
+                padding: 16px;
+                margin: 16px 0px;
+            }
+            .quiz-card h5 {
+                text-indent: 0px;
+                color: #272727;
+                font-weight: bold;
+            }
+            .quiz-pair {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 14px;
+                margin-top: 10px;
+            }
+            .quiz-snippet {
+                flex: 1 1 260px;
+                min-width: 240px;
+                border-radius: 10px;
+                border: 2px solid transparent;
+                cursor: pointer;
+                background: #282a36;
+                padding: 4px;
+            }
+            .quiz-snippet .hljs {
+                margin: 6px;
+                font-size: 14px;
+            }
+            .quiz-snippet-label {
+                text-indent: 0px;
+                font-family: 'Google Sans Code';
+                font-size: 13px;
+                color: #f8f8f2;
+                padding: 6px 10px 0px 10px;
+                margin: 0px;
+            }
+            .quiz-snippet.selected {
+                border-color: #4F98CA;
+            }
+            .quiz-snippet.correct-answer {
+                border-color: #50D890;
+            }
+            .quiz-snippet.wrong-answer {
+                border-color: #e05c5c;
+            }
+            .quiz-explanation {
+                display: none;
+                margin-top: 10px;
+                background: rgba(79, 152, 202, 0.08);
+                border-radius: 8px;
+                padding: 10px 14px;
+            }
+            .quiz-explanation p {
+                text-indent: 0px;
+                font-size: 15px;
+            }
+            .quiz-explanation.show {
+                display: block;
+            }
+            .quiz-verdict {
+                text-indent: 0px;
+                font-family: 'Google Sans Code';
+                font-size: 14px;
+                margin-bottom: 6px;
+                display: none;
+            }
+            .quiz-verdict.show {
+                display: block;
+            }
+            #quizSubmit {
+                font-family: 'Google Sans Code';
+                background: #4F98CA;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                padding: 10px 20px;
+                font-size: 15px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            #quizScore {
+                text-indent: 0px;
+                font-family: 'Google Sans Code';
+                font-size: 19px;
+                color: #4F98CA;
+                margin-top: 14px;
+                display: none;
+            }
+            #quizScore.show {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div id = "content">
+            <!--Icon thingy-->
+        	<section class = "shapes">
+        	    <h6 id="icon-bg" style = "height: 490px;"></h6>
+        	</section>
+            <!--Title-->
+        	<section class = "one">
+        	    <br>
+        	    
+        	    <h2>Identifying AI usage in programs</h2>
+        	</section>
+        	<!--The date posted-->
+            <div class = "info">
+                <p>
+                    <i>Started 6, January, 2024. Completed 14, August 2026 by 
+                        <a href = "https://www.khanacademy.org/computer-programming/arrow-subscription-page/5694044653273088">Arrow</a>
+                    </i>
+                    
+                </p>
+            </div>
+        	        	<section id="group-intro">
+        	    <br>
+            <h4 id="how-to-identify-code-written-by-a-llm">
+                How to Identify Code Written by a LLM
+            </h4>
+            	<p>
+            	    Before I start with the topic, I want to emphasize that this is a very broad topic and that I am by no means covering everything. One of the reasons I am not covering everything is because I don't want people to use this to help hide the fact that they used an LLM. The reason I am writing this is to help proficient coders identify LLM written code so that they can reach out to the user doing it and explain why it isn't a good idea. 
+            	    <i>
+            	        I would also like to point out before I start that just because a program has some of these in it doesn't nessecarily mean it is generated. Sometimes coders do odd things, or things that may be reasonable to them because they saw it online or in a book. Always be careful and kind when confronting someone with possible LLM use, and be ready to give an apology if you made a mistake :)
+            	       
+            	   </i>
+            	</p>
+
+            <br>
+            <h4 id="key-principles-and-theory">
+                Key Principles and Theory:
+            </h4>
+            	<p>
+            	    It is sometimes very difficult to evaluate code for LLM usage without the proper mindset. You have to think like a LLM to identify an LLM. How does an LLM work? Why does it do what it does? Question everything. Evaluate comments and code, why was the code written this way? The mindset is just as important as knowing the theories behind it. 
+            	    <br>Let's dive in! (<b>Oh, and stick around for the quiz at the end!</b>)
+            	</p>
+<br>
+        	</section>
+
+        	<section id="group-comments" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Comments & Documentation</h3>
+        	    </div>
+            <h4 id="llm-commenting-techniques">
+                LLM commenting techniques
+            </h4>
+            	<p>
+            	    Since LLMs are essentially web-based robots powered by powerful software, it tends to be easy to pick out commenting styles as being generated
+            	    
+            	    
+            	</p>
+            	<h5>A) Over explanatory:</h5>
+            	<p>LLMs frequently repeat information that can be easily inferred from descriptive variable or function names, they tend to over-explain the obvious and stuff that is standard (<i>commonly called boilerplate code</i>) which most human devs would skip, for example:</p>
+            	
+            	<pre><code class = 'javascript'>// Define a variable named count and initialize it to zero
+let count = 0; 
+// Loop ten times from 0 to 9
+for (let i = 0; i &lt; 10; i++) {
+    // Increment count by one in each iteration
+    count++;
+}</code></pre>
+            	<p>Here's the same over-explaining habit in a different context, building up an array instead of a loop counter:</p>
+            	<pre><code class = 'javascript'>// Create an empty array to store the results
+const results = [];
+// Loop through each item in the input array
+for (const item of items) {
+    // Add the item to the results array
+    results.push(item);
+}</code></pre>
+            	<h5>B) Micro-commenting:</h5>
+            	<p>LLMs tend to focus on the small details and parts of the code as it generates, rather than focusing how a line of code impacts the overall project. LLMs don't tend to look at the big picture. Here is an example of some generated code with micro-commenting:</p>
+            	
+            	<pre><code class = 'javascript'>// Define an array of numbers
+const numbers = [1, 2, 3, 4, 5];
+// Use the map method to create a new array with squared values
+const squares = numbers.map(num =&gt; num * num);
+// Log the result to the console for verification
+console.log(squares);
+</code></pre>
+            	<p>Or applied to a DOM element's styling, where every single property gets its own tiny caption instead of comments being reserved for the parts that actually need explaining:</p>
+            	<pre><code class = 'javascript'>// Set the background color of the button
+button.style.backgroundColor = "#4F98CA";
+// Add rounded corners
+button.style.borderRadius = "8px";
+// Add spacing inside the button
+button.style.padding = "10px 20px";</code></pre>
+            	<h5>C) Semantic (Language based) Section Labeling:</h5>
+            	<p>LLMs will frequently "anchor" sections or give them a commented "preamble" before outputting the actual tag. These are redundant and a good thing to look for:</p>
+            	
+            	<pre><code class = 'ht'>&lt;!-- Start of Header Section --&gt;
+&lt;header class="site-header"&gt;
+    &lt;nav&gt;
+        &lt;!-- Navigation Links --&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;!-- End of Header Section --&gt;
+</code></pre>
+            <h5>D) Commenting schema and language</h5>
+            	<p>LLMs typically have certain oddities that human coders don't always do when commenting, for instance: Perfect capatalization and spacing after slashes:</p>
+            	<pre><code class = 'javascript'>// Define a function that mimics the Khan Academy API
+function KhanAcademyAPI(){...}
+</code></pre>
+            <p>LLM  typical, classic, stiff, overused, language phrases like: </p><ul class = "bullet">
+                            <li>Your logic goes here</li>
+                            <li>Input: [type], Output: [type]</li>
+                            <li>Handle [X] case</li>
+                            <li>Initialize variables</li>
+                            <li>Perform [Action]</li>
+                            <li>Note: [X]</li>
+                            <li><li>
+                            <li></li>
+                        </ul>
+<p>
+Comments typically following a consistent, predictable pattern throughout the program, wheras human coding can be scattered and sometimes impulsive 
+
+
+
+</p>
+            <pre><code class = 'javascript'>
+//-------Begin Toggle Code--------
+function toggleMenu(elementId) {
+    const element = document.getElementById(elementId);
+    // Check if element exists before modifying
+    if (element) {
+        element.classList.toggle('hidden');
+    }
+}</code></pre>
+
+            <br>
+            <h4 id="a-few-more-things-to-watch-for">
+                A few more things to watch for
+            </h4>
+            <h5>A) The narrated closing brace:</h5>
+            <p>A comment restating what block is ending, right next to the brace that ends it, especially on loops and conditionals that aren't even long enough to need the reminder:</p>
+            <pre><code class = 'javascript'>for (let i = 0; i &lt; items.length; i++) {
+    process(items[i]);
+} // end of for loop
+
+if (isValid) {
+    submitForm();
+} // end of if statement</code></pre>
+            <p>A human tracking a five-line function rarely feels the need to remind themselves which brace belongs to what, they can just look up two lines. This habit comes from the model "narrating" structure as it writes, the same instinct behind the semantic section labeling covered earlier.</p>
+            <h5>B) Type comments in a language that doesn't need them:</h5>
+            <p>In a dynamically typed language like plain JavaScript or Python, comments that restate a parameter's type as if it were a statically typed language, a habit that seems to leak in from how often the model has seen typed function signatures:</p>
+            <pre><code class = 'javascript'>// name: string, age: number
+function greet(name, age) {
+    return name + " is " + age + " years old.";
+}</code></pre>
+            <h5>C) Magic-number footnoting:</h5>
+            <p>Every single number in the program gets its own little comment explaining what it is, rather than the number just being given a name, which is usually the more natural human fix:</p>
+            <pre><code class = 'javascript'>setTimeout(update, 3000); // 3000ms = 3 seconds
+element.style.opacity = 0.85; // 0.85 = 85% opacity</code></pre>
+            <p>A human is more likely to just write <code style = "font-family: 'Google Sans Code';">const UPDATE_DELAY_MS = 3000;</code> than to leave the raw number in place with a comment translating it back into English right next to it.</p>
+
+            <br>
+            <h4 id="the-overly-polite-comment">
+                The overly polite comment
+            </h4>
+            <p>
+                Comments occasionally slip into a tone that's oddly formal or courteous, as if addressing a reader rather than just leaving a note to self:
+            </p>
+            <pre><code class = 'javascript'>// Please note: this function assumes the array is already sorted.
+// For your convenience, the result is returned as a new array
+// rather than mutating the original.
+function mergeSorted(a, b) { ... }</code></pre>
+            <p>"Please note" and "for your convenience" are phrases you'd expect in customer-facing documentation, not in a comment someone leaves for themselves in their own file. Most people writing notes to their future self are a lot more blunt, something closer to "assumes sorted input!" or no comment at all.</p>
+
+            <br>
+            <h4 id="the-example-usage-comment-block">
+                The "example usage" comment block
+            </h4>
+            <p>
+                Right after defining a function, LLMs love to leave behind a little demo showing how to call it, exactly the way a library's documentation would. It's genuinely useful in an actual library other people will import, but it's an odd habit to have inside a one-off script only the author will ever run:
+            </p>
+            <pre><code class = 'javascript'>function calculateArea(width, height) {
+    return width * height;
+}
+
+// Example usage:
+// const result = calculateArea(5, 10);
+// console.log(result); // Output: 50</code></pre>
+            <p>The author already knows how to call their own function two lines down, they wrote it. This pattern makes a lot more sense coming from something trained on documentation and package READMEs than from someone jotting down code for their own project.</p>
+
+            <br>
+            <h4 id="perfect-grammar-and-punctuation">
+                Perfect grammar and punctuation
+            </h4>
+            <p>
+                Comments left by an LLM tend to read like they were proofread, because in a sense they were, they came out of a model trained on huge amounts of edited prose. Capital letters at the start of every comment, a period at the end of every complete sentence, an apostrophe in every contraction, correctly placed commas even in a two-word aside. Most people typing a note to themselves at 1am don't bother:
+            </p>
+            <pre><code class = 'javascript'>// This function validates the user's email address before submission.
+// It returns true if the format is valid, and false otherwise.
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}</code></pre>
+            <p>Compare that to how a real person tends to leave notes in their own file, lowercase, no terminal period, contractions with the apostrophe dropped or just left out entirely:</p>
+            <pre><code class = 'javascript'>// checks email is basically valid, not perfect but good enough
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}</code></pre>
+            <p>Watch especially for consistency across an entire file. A single well-punctuated comment doesn't mean much on its own, everybody has a tidy moment now and then. But dozens of comments in a row that all capitalize, all punctuate, and all read like complete sentences, with zero lowercase starts and zero dropped periods anywhere in the file, is a much harder pattern for a human to keep up by accident.</p>
+
+            <br>
+            <h4 id="a-few-more-creative-detection-methods">
+                A few more creative ways to catch it
+            </h4>
+            <p>
+                Beyond just reading the comments themselves, there are some sideways tricks that can be more reliable than staring at any one line:
+            </p>
+            <h5>A) Ask them to explain a comment in their own words:</h5>
+            <p>Pick a comment that sounds a little too polished and ask the author to paraphrase it out loud, in their own words, without looking at the screen. Someone who actually wrote it usually just repeats roughly the same idea in rougher language. Someone who pasted it in often hesitates, or ends up re-reading the original comment back almost verbatim because they never really internalized what it says.</p>
+            <h5>B) Search for the exact phrase:</h5>
+            <p>Copy a slightly unusual comment, something like "// Ensure the array is not empty before proceeding" and drop it into a search engine in quotes. Generic LLM phrasing shows up verbatim across dozens of unrelated repos and tutorials, because thousands of people asked for something similar and got back nearly the same sentence. A comment a person actually wrote themselves almost never has an exact twin sitting in someone else's codebase.</p>
+            <h5>C) Rename something and see what breaks:</h5>
+            <p>Rename a variable or function and ask the author to update the file. A person who wrote the comments themselves usually updates or drops the ones that no longer make sense, because they were tracking the code, not just decorating it. Comments that were never really "read" by a human tend to survive the rename unchanged, still referring to the old name, because whoever pasted them in wasn't relying on them for anything.</p>
+            <h5>D) Ask for a live edit:</h5>
+            <p>Have them add a small new feature to the file while you watch, and pay attention to how they comment as they go in real time. The dense, perfectly punctuated, evenly spaced commenting style covered throughout this section is a batch-generation habit, it shows up when an entire file is produced in one pass. It's very hard to keep up typing live, under time pressure, with someone watching. A big gap between how "clean" the existing comments are and how someone actually comments live is one of the more reliable tells there is.</p>
+            <h5>E) Look for the absence of scars:</h5>
+            <p>Real, lived-in code tends to collect little markers over time, a stray <code style = "font-family: 'Google Sans Code';">// TODO</code>, a <code style = "font-family: 'Google Sans Code';">// FIXME hack</code>, a comment that's mildly annoyed at a bug from three weeks ago, an inside joke only the author would get. A file with dozens of comments and not one of them is informal, dated, sarcastic, or self-deprecating is a file that's never actually been lived in by a person.</p>
+
+        	</section>
+
+        	<section id="group-naming" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Naming & Vocabulary</h3>
+        	    </div>
+            <h4 id="naming-conventions">
+                Naming conventions
+            </h4>
+            <p>
+                Names are one of the biggest tells, because an LLM isn't naming things from lived experience with a codebase, it's naming things from patterns it has seen a million times in documentation and tutorials. Watch for these:
+            </p>
+            <h5>A) The textbook name:</h5>
+            <p>Variables named exactly what a computer science course would call them, rather than what a person working under a deadline would call them. Humans abbreviate, LLMs rarely do unless told to:</p>
+            <pre><code class = 'javascript'>// Human tends to write:
+let temp = arr[i];
+let usr = getUser();
+
+// LLM tends to write:
+let temporaryValue = array[index];
+let currentUser = getUser();</code></pre>
+            <h5>B) Suspiciously perfect consistency:</h5>
+            <p>Real projects, especially ones written over multiple sessions by a learner, drift. You'll see camelCase in one function and snake_case creeping in from something copied off a forum, a variable renamed halfway through, a typo that stuck around because fixing it wasn't worth the hassle. LLM output almost never drifts within a single response, every function, every variable, follows the exact same convention from the first line to the last, because it was generated in one continuous pass rather than built up over weeks.</p>
+            <h5>C) Overly descriptive booleans and flags:</h5>
+            <p>LLMs love verbose boolean names like <code style = "font-family: 'Google Sans Code';">isCurrentlyLoadingData</code> or <code style = "font-family: 'Google Sans Code';">hasUserSuccessfullyLoggedIn</code>, where a human would just write <code style = "font-family: 'Google Sans Code';">loading</code> or <code style = "font-family: 'Google Sans Code';">loggedIn</code>. It reads like it's trying to be self-documenting to a fault.</p>
+            <h5>D) The generic handler name:</h5>
+            <p>Event handlers and callbacks named in the exact generic way a tutorial would name them, rather than anything tied to what the project actually does:</p>
+            <pre><code class = 'javascript'>function handleClick(event) { ... }
+function handleSubmit(event) { ... }
+function handleChange(event) { ... }</code></pre>
+            <p>There's nothing wrong with these names on their own, plenty of humans use them too, but when every single handler in a project follows this exact <code style = "font-family: 'Google Sans Code';">handleX</code> pattern with zero exceptions, it starts to look copied straight out of a framework's official docs rather than named by someone working through their own project.</p>
+
+            <br>
+            <h4 id="a-tiny-overused-vocabulary-of-generic-names">
+                A tiny, overused vocabulary of generic names
+            </h4>
+            <p>
+                Look across an entire file at how many unrelated things all end up sharing the exact same handful of names, <code style = "font-family: 'Google Sans Code';">data</code>, <code style = "font-family: 'Google Sans Code';">result</code>, <code style = "font-family: 'Google Sans Code';">response</code>, <code style = "font-family: 'Google Sans Code';">item</code>, <code style = "font-family: 'Google Sans Code';">value</code>. LLMs default to this same small pool of nouns constantly because they're the statistically safest, most generic choice for "a thing that holds a thing":
+            </p>
+            <pre><code class = 'javascript'>function getUserData() {
+    const data = fetchUser();
+    return data;
+}
+
+function getWeatherData() {
+    const data = fetchWeather();
+    return data;
+}
+
+function getScoresData() {
+    const data = fetchScores();
+    return data;
+}</code></pre>
+            <p>Three completely different kinds of information, a user profile, a weather report, a list of scores, and every single one gets stored in a variable just called <code style = "font-family: 'Google Sans Code';">data</code>. A person working across their own project tends to reach for more specific, situational names as they go, <code style = "font-family: 'Google Sans Code';">user</code>, <code style = "font-family: 'Google Sans Code';">forecast</code>, <code style = "font-family: 'Google Sans Code';">scores</code>, because those are the words they're actually thinking in.</p>
+
+        	</section>
+
+        	<section id="group-formatting" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Formatting & Visual Patterns</h3>
+        	    </div>
+            <h4 id="the-alignment-phenomenon">
+                The alignment phenomenon
+            </h4>
+            <p>
+                This one is one of my favorites to point out because it's so visual. LLMs love to pad code with extra spaces so that things line up into neat vertical columns, equals signs stacked on top of each other, colons in an object all sitting at the same position, values in a comment block all ending at the same spot. A human doing this by hand for a whole file would have to constantly recount spaces every time a name changed length, so most people simply don't bother past a line or two. An LLM does it instantly and keeps it perfect the entire way down, because it isn't manually counting spaces, it's just pattern-matching what "clean aligned code" looks like:
+            </p>
+            <h5>A) Aligned assignments:</h5>
+            <pre><code class = 'javascript'>const name    = "Arrow";
+const age     = 17;
+const country = "USA";
+const online  = true;</code></pre>
+            <p>Notice how every equals sign lines up in the same column no matter how long the variable name is. A human typing this out would almost always just leave a single space after each name and move on.</p>
+            <h5>B) Aligned object properties:</h5>
+            <pre><code class = 'javascript'>const config = {
+    width:       500,
+    height:      600,
+    background:  "#272727",
+    fontSize:    17
+};</code></pre>
+            <h5>C) Aligned comments:</h5>
+            <pre><code class = 'javascript'>let x = 0;      // horizontal position
+let y = 0;      // vertical position
+let speed = 5;  // pixels moved per frame</code></pre>
+            <p>Here every inline comment starts at exactly the same column, which means the padding had to be recalculated for every single line based on the length of the line before it, something that's trivial for a model generating the whole block at once but tedious enough that a person editing line by line rarely keeps it up for more than a couple of lines before giving up.</p>
+            <h5>D) Aligned numbers and tables:</h5>
+            <pre><code class = 'javascript'>const scores = [
+    { name: "Alex",  score:  92 },
+    { name: "Sam",   score: 105 },
+    { name: "Jordan", score:  78 }
+];</code></pre>
+            <p>Right-aligned numbers so the digits stack up regardless of how many digits each score has is a very "generated table" look. It's not wrong, and it's not even bad style, plenty of style guides actually recommend it, but it's a strong tell precisely because it takes real, tedious effort for a human to keep up by hand, and most people writing their own code just don't bother.</p>
+            <h5>E) Manual padding for console output:</h5>
+            <p>When a model is asked to print a little table or report to the console, it will often build the padding by hand with repeated spaces or by reaching for <code style = "font-family: 'Google Sans Code';">padEnd</code> / <code style = "font-family: 'Google Sans Code';">padStart</code>, and it will get every column's width exactly right on the first try:</p>
+            <pre><code class = 'javascript'>console.log("Name".padEnd(10) + "Score".padStart(6));
+console.log("Alex".padEnd(10) + "92".padStart(6));
+console.log("Sam".padEnd(10) + "105".padStart(6));
+console.log("Jordan".padEnd(10) + "78".padStart(6));</code></pre>
+            <p>This isn't wrong or even unusual code, plenty of developers use <code style = "font-family: 'Google Sans Code';">padEnd</code> and <code style = "font-family: 'Google Sans Code';">padStart</code>, but a beginner reaching for it correctly, with exactly the right column widths, on their very first attempt at a console table is a bit of a giveaway. Most people discover they need padding only after their first attempt already looks crooked.</p>
+
+            <br>
+            <h4 id="formatting-and-punctuation-tells">
+                Formatting and punctuation tells
+            </h4>
+            <h5>A) The em dash:</h5>
+            <p>LLMs are unusually fond of the em dash (—) in prose and even in comments, far more than most people naturally type, since it isn't a character most keyboards make easy to reach:</p>
+            <pre><code class = 'javascript'>// This function calculates the total price — including tax and any
+// applicable discounts — before returning the final amount to the caller.
+function calculateTotal(items) { ... }</code></pre>
+            <p>Seeing several em dashes scattered through comments or commit messages is worth a second look, most people either don't know how to type one or reach for a regular hyphen or comma instead.</p>
+            <h5>B) Perfectly parallel list items:</h5>
+            <p>Bulleted or numbered lists where every single item follows the identical grammatical structure, starts with a gerund, ends with a colon and a short phrase, and so on:</p>
+            <pre><code class = 'javascript'>// TODO:
+// - Implementing user authentication: allow users to sign up and log in
+// - Adding data validation: ensure all form inputs are sanitized
+// - Creating the dashboard: build the main user-facing interface
+// - Writing tests: cover the core functionality with unit tests</code></pre>
+            <p>A real, scribbled personal to-do list is rarely this grammatically tidy, it usually looks more like fragments jotted down in a hurry: "fix login bug", "still need tests", "ask about the API key".</p>
+            <h5>C) Overuse of bold for emphasis:</h5>
+            <p>Comments, docs, or markdown output with an unusual number of <b>bolded phrases</b> sprinkled through otherwise plain sentences, a habit that comes from being trained on chat-formatted answers rather than code comments or plain documentation.</p>
+
+            <br>
+            <h4 id="the-metronome-blank-line-rhythm">
+                The metronome blank-line rhythm
+            </h4>
+            <p>
+                Look at how blank lines are spaced through a file, not just what's on each line. LLMs tend to insert a blank line between every logical chunk with almost mechanical regularity, a blank line after every variable declaration block, before every if statement, after every function, giving the whole file a very even, "airy" rhythm:
+            </p>
+            <pre><code class = 'javascript'>function processOrder(order) {
+    const total = order.items.reduce((sum, item) =&gt; sum + item.price, 0);
+
+    const tax = total * 0.08;
+
+    const finalTotal = total + tax;
+
+    if (order.hasDiscount) {
+        return finalTotal * 0.9;
+    }
+
+    return finalTotal;
+}</code></pre>
+            <p>Nothing here is wrong, but notice how a blank line shows up after nearly every single statement, regardless of whether that statement actually needed visual separation from the next one. Human code tends to be spaced more unevenly, tight where the logic is related, with a gap only where there's an actual conceptual break.</p>
+
+        	</section>
+
+        	<section id="group-css" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>CSS & Styling Patterns</h3>
+        	    </div>
+            <h4 id="css-intro">
+                CSS has its own tells
+            </h4>
+            <p>
+                Everything covered so far has been about JavaScript and markup logic, but stylesheets are just as revealing, arguably more so, because CSS has no real "correctness" to hide behind. There's no compiler forcing a particular structure, so the choices someone makes are almost entirely stylistic, which means they say a lot about who, or what, made them.
+            </p>
+            <h5>A) Selector philosophy and specificity discipline:</h5>
+            <p>
+                LLMs write CSS with unusually disciplined, low specificity. Single class selectors almost everywhere, no ID selectors used for styling, and <code style = "font-family: 'Google Sans Code';">!important</code> essentially never appears, because it's treated in most style guides and linters as a last resort:
+            </p>
+            <pre><code class = 'javascript'>.card {
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.card-title {
+    font-weight: 600;
+}</code></pre>
+            <p>
+                Compare that to how a beginner working directly in the browser's dev tools tends to actually solve a styling problem that isn't behaving, by reaching straight for an ID selector or an <code style = "font-family: 'Google Sans Code';">!important</code> to force it into place, then never going back to clean it up once it works:
+            </p>
+            <pre><code class = 'javascript'>#cardTitle {
+    font-weight: 600 !important;
+}</code></pre>
+            <p>
+                Neither approach is "wrong," CSS specificity fights are a genuine part of learning the language, but a whole stylesheet that never once reaches for the blunt tool is a little too disciplined for someone still fighting the cascade for the first time.
+            </p>
+            <h5>B) Design tokens: custom properties as a formal system:</h5>
+            <p>
+                LLMs love to define a small formal system of CSS custom properties at <code style = "font-family: 'Google Sans Code';">:root</code>, even for a single, one-off page, essentially inventing a miniature design system nobody asked for:
+            </p>
+            <pre><code class = 'javascript'>:root {
+    --color-primary: #4F98CA;
+    --color-secondary: #50D890;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+}</code></pre>
+            <p>
+                This is genuinely good practice on a real, growing project, but a beginner working on a single small page tends to just type the hex code or the pixel value directly wherever it's needed, <code style = "font-family: 'Google Sans Code';">#4F98CA</code>, right there in the rule, rather than abstracting it into a named variable before it's ever been reused even once. Systemizing values before there's any actual repetition to justify it is a very "trained on best practices" instinct.
+            </p>
+            <h5>C) The universal reset reflex:</h5>
+            <p>
+                Ask an LLM for a stylesheet and it will almost always open with some version of the same universal reset, applied identically, near verbatim, across completely unrelated projects:
+            </p>
+            <pre><code class = 'javascript'>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}</code></pre>
+            <p>
+                It's not that this is bad practice, plenty of real projects use exactly this, but the consistency is the tell rather than the reset itself. Ask the same model for a stylesheet on ten unrelated topics and this exact block, sometimes down to the property order, shows up at the top of nearly all ten. A human picks this habit up unevenly, some never learn it, some learned a slightly different version from a slightly different tutorial, some only remember to add it halfway through when things start looking wrong.
+            </p>
+            <h5>D) Unit consistency, rem by default:</h5>
+            <p>
+                Accessibility best practice recommends relative units, <code style = "font-family: 'Google Sans Code';">rem</code> or <code style = "font-family: 'Google Sans Code';">em</code>, over fixed <code style = "font-family: 'Google Sans Code';">px</code> values, since they respect a user's browser font-size settings. LLMs apply this consistently and correctly, everywhere, all the time:
+            </p>
+            <pre><code class = 'javascript'>.button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}</code></pre>
+            <p>
+                A beginner almost always reaches for <code style = "font-family: 'Google Sans Code';">px</code> instead, because it's more intuitive, "16 pixels" means something concrete and visual in a way "1 rem" doesn't until you've internalized the relationship. A stylesheet that never once uses a pixel value, from someone who otherwise seems new to CSS, is worth a second look.
+            </p>
+            <h5>E) The universal breakpoint set:</h5>
+            <p>
+                Ask an LLM to make something responsive and it reaches for the same small handful of media query breakpoints almost every time, the numbers themselves have become a kind of shorthand baked into a huge share of the tutorials and frameworks it was trained on:
+            </p>
+            <pre><code class = 'javascript'>@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+}</code></pre>
+            <p>
+                768px, 1024px, and 1440px specifically show up constantly, they trace back to old tablet and laptop screen widths that got repeated in enough bootcamp curricula and framework docs to become the "default" answer, whether or not they actually match where a particular design breaks. A person building their own page tends to resize the browser by hand until something looks wrong, and picks whatever number that happened to be, 850px, 613px, 910px, numbers that only make sense in the context of that one specific layout rather than numbers that would look at home in any responsive tutorial ever written.
+            </p>
+            <h5>F) The default transition, every time:</h5>
+            <p>
+                When something needs to animate smoothly, LLMs converge on the same one or two timing choices, almost like a reflex, regardless of what's actually being animated:
+            </p>
+            <pre><code class = 'javascript'>.button {
+    transition: all 0.3s ease-in-out;
+}
+
+.modal {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}</code></pre>
+            <p>
+                <code style = "font-family: 'Google Sans Code';">0.3s ease-in-out</code>, or the near-identical <code style = "font-family: 'Google Sans Code';">0.3s ease</code>, shows up on buttons, modals, dropdowns, and tooltips alike, functionally unrelated interactions that a human designing by feel would very likely time differently, a hover state usually wants to feel instant, snappy, something closer to 0.15s, while a modal sliding in benefits from feeling a little weightier, 0.4s or more. Using <code style = "font-family: 'Google Sans Code';">transition: all</code> rather than naming the specific property being animated is its own small tell too, it's the safe, catch-all choice that avoids having to think about exactly what's changing.
+            </p>
+            <h5>G) A tidy, invented z-index scale:</h5>
+            <p>
+                Stacking order is one of those things beginners usually solve by trial and error, bump the number until it's on top. LLMs instead tend to invent a clean, evenly spaced scale up front, as if planning for a project that will eventually need it:
+            </p>
+            <pre><code class = 'javascript'>.dropdown { z-index: 10; }
+.sticky-header { z-index: 20; }
+.modal-overlay { z-index: 100; }
+.modal { z-index: 101; }
+.toast { z-index: 999; }</code></pre>
+            <p>
+                Notice the round, deliberately spaced numbers, gaps left on purpose so something could theoretically be inserted between layers later. A person just trying to get one dropdown to appear above one header tends to reach for something much blunter, a lone <code style = "font-family: 'Google Sans Code';">z-index: 999;</code> slapped onto whichever element wasn't showing up, with no scale or plan behind it at all, and often no other z-index anywhere else in the file.
+            </p>
+            <h5>H) Ghost vendor prefixes:</h5>
+            <p>
+                Vendor prefixes like <code style = "font-family: 'Google Sans Code';">-webkit-</code> and <code style = "font-family: 'Google Sans Code';">-moz-</code> used to be necessary for properties still being standardized across browsers. Most of the properties beginners reach for today don't need them anymore, but a lot of the training material an LLM learned from was written back when they did, and old habits linger:
+            </p>
+            <pre><code class = 'javascript'>.card {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}</code></pre>
+            <p>
+                <code style = "font-family: 'Google Sans Code';">border-radius</code> and <code style = "font-family: 'Google Sans Code';">box-shadow</code> have been fully supported unprefixed for a very long time now, so seeing them prefixed in a brand new project is a small but genuine anachronism, a fossil from years of accumulated tutorial content rather than anything the current web actually requires.
+            </p>
+            <h5>I) Rigid, categorical property ordering:</h5>
+            <p>
+                Within a single CSS rule, LLMs tend to group and order properties the exact same way every time, positioning first, then box model, then typography, then everything visual, mirroring the order most style guides teach:
+            </p>
+            <pre><code class = 'javascript'>.card {
+    position: relative;
+    display: flex;
+    width: 300px;
+    padding: 16px;
+    margin: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #272727;
+    background: #ffffff;
+    border-radius: 8px;
+}</code></pre>
+            <p>
+                That ordering is genuinely good practice, but the important part is that it's applied identically in every single rule across the whole file, with zero drift. A human adding properties as they go, tweaking padding here, remembering a color there, coming back later to add a border, tends to end up with properties in whatever order they happened to think of them, which is rarely this tidy more than once or twice in a row.
+            </p>
+
+        	</section>
+
+        	<section id="group-structure" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Code Structure & Architecture</h3>
+        	    </div>
+            <h4 id="structural-and-architectural-tells">
+                Structural and architectural tells
+            </h4>
+            <p>
+                Beyond naming and comments, the overall shape of the code is often a giveaway. LLMs are trained to produce "textbook correct" structure, which doesn't always match how a beginner or intermediate coder would actually approach a problem.
+            </p>
+            <h5>A) Defensive coding for things that can't happen:</h5>
+            <p>LLMs are trained to be careful, so they will often null-check, type-check, and try/catch things that are logically impossible given the surrounding code, because it doesn't actually understand the guarantees of the program the way the author would:</p>
+            <pre><code class = 'javascript'>function double(x) {
+    // Check if input is valid
+    if (x === null || x === undefined) {
+        throw new Error("Invalid input");
+    }
+    if (typeof x !== 'number') {
+        throw new Error("Input must be a number");
+    }
+    return x * 2;
+}</code></pre>
+            <p>For a tiny helper function like this that's only ever called with a number a few lines away, that much guarding is a strong sign of generated code, a human writing throwaway code for a project rarely bothers.</p>
+            <h5>B) Uniform error handling everywhere:</h5>
+            <p>Every single function wrapped in an identical try/catch block with an identical style of error message, even in places where an error is essentially impossible or where the rest of the program has no way to meaningfully use that error. Humans tend to handle errors unevenly, thoroughly where it matters, and not at all where it doesn't.</p>
+            <h5>C) Unused abstraction:</h5>
+            <p>Helper functions, classes, or config objects that are created but only ever used once, or generalized solutions to a problem that only needed to be solved one specific way. LLMs tend to reach for "best practice" structure even when the project doesn't call for it, because that's what shows up most often in the training examples it's drawing from. For example, a whole config object built for a function that's only ever called one way, one time, in the entire program:</p>
+            <pre><code class = 'javascript'>function createGreeting(options = {}) {
+    const {
+        greeting = "Hello",
+        name = "World",
+        punctuation = "!"
+    } = options;
+    return `${greeting}, ${name}${punctuation}`;
+}
+
+// The only call in the entire file:
+console.log(createGreeting());</code></pre>
+            <p>A function that only ever gets called once, with no arguments, didn't need to be built to accept a whole options object with three configurable defaults. That kind of "just in case" flexibility is a very LLM instinct.</p>
+            <h5>D) The complete, all-at-once feature:</h5>
+            <p>A brand new feature that appears in a project fully formed, with edge cases handled, input validation, and clean styling, when the rest of the surrounding code is much rougher. Real projects tend to grow a feature messily first and clean it up later, if ever. It's easiest to spot side by side, here's what a scrappy, human, first-pass login check might look like elsewhere in the same file:</p>
+            <pre><code class = 'javascript'>function login(user, pass) {
+    if (user == "admin" &amp;&amp; pass == "1234") {
+        return true;
+    }
+    return false;
+}</code></pre>
+            <p>And here's a "new feature" dropped in right next to it, fully validated, fully commented, with error objects and edge cases nobody asked for:</p>
+            <pre><code class = 'javascript'>function updateProfile(userId, updates) {
+    if (!userId || typeof userId !== 'string') {
+        throw new Error('A valid userId is required');
+    }
+    if (!updates || typeof updates !== 'object') {
+        throw new Error('Updates must be provided as an object');
+    }
+    const allowedFields = ['name', 'email', 'bio'];
+    const sanitizedUpdates = {};
+    for (const key of allowedFields) {
+        if (updates[key] !== undefined) {
+            sanitizedUpdates[key] = updates[key];
+        }
+    }
+    return { ...getUser(userId), ...sanitizedUpdates };
+}</code></pre>
+            <p>Same file, same author, two wildly different levels of polish, that gap is the tell.</p>
+
+            <br>
+            <h4 id="over-modularization">
+                Over-modularization
+            </h4>
+            <p>
+                LLMs are trained on a lot of advice about "small, single-responsibility functions," and they apply it even when a problem doesn't need to be split up at all. The result is a task that could be four lines inside one function getting broken into three or four tiny helper functions, each called exactly once, each adding a layer of indirection a reader has to jump through:
+            </p>
+            <pre><code class = 'javascript'>function getFirstName(fullName) {
+    return fullName.split(" ")[0];
+}
+
+function getLastName(fullName) {
+    return fullName.split(" ")[1];
+}
+
+function formatGreeting(firstName, lastName) {
+    return `Hello, ${firstName} ${lastName}!`;
+}
+
+function greetUser(fullName) {
+    const first = getFirstName(fullName);
+    const last = getLastName(fullName);
+    return formatGreeting(first, last);
+}</code></pre>
+            <p>Every one of those helpers is used exactly once, in exactly one place. A person just trying to get their program working tends to write <code style = "font-family: 'Google Sans Code';">const [first, last] = fullName.split(" ");</code> and move on, they don't reach for four named functions to split a string. Splitting things up is good practice, but only when a piece of logic is actually reused or actually complex, doing it reflexively for trivial one-off logic is the tell.</p>
+
+            <br>
+            <h4 id="guard-clauses-applied-by-the-book">
+                Guard clauses applied by the book
+            </h4>
+            <p>
+                "Return early instead of nesting if statements" is common, genuinely good advice from clean-code style guides, and LLMs apply it with textbook precision, restructuring even very simple logic into a neat staircase of early returns:
+            </p>
+            <pre><code class = 'javascript'>function getDiscount(user) {
+    if (!user) {
+        return 0;
+    }
+    if (!user.isMember) {
+        return 0;
+    }
+    if (user.yearsActive &lt; 1) {
+        return 0;
+    }
+    return 0.1;
+}</code></pre>
+            <p>Compare that to how a beginner working through the same problem for the first time is more likely to write it, nested, a little clumsy, but perfectly functional:</p>
+            <pre><code class = 'javascript'>function getDiscount(user) {
+    if (user) {
+        if (user.isMember) {
+            if (user.yearsActive &gt;= 1) {
+                return 0.1;
+            }
+        }
+    }
+    return 0;
+}</code></pre>
+            <p>Neither version is "wrong," but if someone is claiming to be a beginner while consistently writing the first style without ever nesting a single condition, that consistency itself is the tell.</p>
+
+            <br>
+            <h4 id="modern-syntax-used-everywhere-all-at-once">
+                Modern syntax used everywhere, all at once
+            </h4>
+            <p>
+                LLMs tend to have picked up every modern JavaScript feature and use all of them fluently and constantly, optional chaining, nullish coalescing, destructuring, template literals, arrow functions, spread syntax, in basically every line where they could technically apply. A beginner, by contrast, usually only knows and uses a handful of these at a time, whatever they were taught most recently:
+            </p>
+            <pre><code class = 'javascript'>const { name, age = 18, address: { city } = {} } = user ?? {};
+const greeting = `Hi ${name ?? "there"}, you're ${age} and live in ${city ?? "an unknown place"}.`;
+const updatedUser = { ...user, lastSeen: Date.now() };</code></pre>
+            <p>Three different modern features stacked into two lines, nullish coalescing, nested destructuring with a default, and spread syntax, all used flawlessly together. It's not that any one of these is a red flag on its own, plenty of intermediate coders know optional chaining. It's the density and fluency of all of them together, especially early in a project where the rest of the code looks much more basic, that stands out.</p>
+
+            <br>
+            <h4 id="flawless-const-discipline">
+                Flawless <code style = "font-family: 'Google Sans Code';">const</code> discipline
+            </h4>
+            <p>
+                Using <code style = "font-family: 'Google Sans Code';">const</code> by default and only reaching for <code style = "font-family: 'Google Sans Code';">let</code> when a value truly needs to change is solid modern practice, and LLMs apply it with total consistency, every single variable that's never reassigned is a <code style = "font-family: 'Google Sans Code';">const</code>, every time, in every function, with zero exceptions and zero stray <code style = "font-family: 'Google Sans Code';">var</code> anywhere in the file. Beginners, understandably, tend to default to <code style = "font-family: 'Google Sans Code';">let</code> out of habit even for values that never change, because the distinction hasn't fully clicked yet, or a stray <code style = "font-family: 'Google Sans Code';">var</code> shows up because that's what an old tutorial they half-remember used. A file that never once "gets it wrong" is a little too disciplined for a self-taught first draft.</p>
+
+            <br>
+            <h4 id="the-unnecessary-explaining-variable">
+                The unnecessary explaining variable
+            </h4>
+            <p>
+                LLMs are trained to favor readability, so they'll often introduce a descriptively named variable that exists purely to be read once and never touched again, where a human would just inline the expression:
+            </p>
+            <pre><code class = 'javascript'>const isEligibleForDiscount = user.age &gt;= 65 || user.isStudent;
+if (isEligibleForDiscount) {
+    applyDiscount();
+}</code></pre>
+            <p>This isn't bad code, in fact it's arguably clearer, which is exactly the point, it reads like something written to be graded rather than written to just get the job done. A human in a hurry is more likely to just write <code style = "font-family: 'Google Sans Code';">if (user.age &gt;= 65 || user.isStudent) { applyDiscount(); }</code> and move on.</p>
+
+            <br>
+            <h4 id="swallowed-and-generic-error-handling">
+                Swallowed and generic error handling
+            </h4>
+            <p>
+                Related to the uniform try/catch pattern covered earlier, but worth calling out on its own: errors that get caught but then handled with a message so generic it could apply to literally any failure in the program.
+            </p>
+            <pre><code class = 'javascript'>try {
+    const data = JSON.parse(response);
+    return data;
+} catch (error) {
+    console.log("An error occurred");
+    return null;
+}</code></pre>
+            <p>The message never mentions parsing, JSON, or the response at all, it's a placeholder that would fit equally well pasted into any other catch block in the file, or in any other program entirely. A human who wrote this code and hit this specific error while testing it tends to leave behind a message that reflects what actually went wrong, because they were staring at the actual failure when they wrote it.</p>
+
+            <br>
+            <h4 id="import-and-module-organization">
+                Import and module organization
+            </h4>
+            <p>
+                LLMs are trained on a lot of well-organized open-source codebases, so they tend to reach for a very specific, very tidy import structure, even in a ten-line script that doesn't need it.
+            </p>
+            <h5>A) Labeled import groups:</h5>
+            <pre><code class = 'javascript'>// Third-party libraries
+import React from 'react';
+import axios from 'axios';
+
+// Local components
+import Header from './Header';
+import Footer from './Footer';
+
+// Utility functions
+import { formatDate } from './utils';</code></pre>
+            <p>Grouping and alphabetizing imports is genuinely good practice in a large codebase, but seeing it done this precisely, with little section comments, in a small personal or school project is more often a sign of generation than of a beginner independently discovering and applying a style-guide convention.</p>
+            <h5>B) Importing something and never using it:</h5>
+            <p>An import pulled in because it's commonly paired with the pattern being generated, even though nothing in the file actually calls it. This happens because the model is pattern-matching "what usually goes with this kind of code" rather than tracking what this specific file actually needs.</p>
+
+        	</section>
+
+        	<section id="group-data-testing" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Data, Testing & Debugging</h3>
+        	    </div>
+            <h4 id="textbook-sample-and-dummy-data">
+                Textbook sample and dummy data
+            </h4>
+            <p>
+                Whenever an LLM needs to invent placeholder data to demonstrate something, it reaches for the same small pool of instantly recognizable stand-ins, because that's what shows up constantly across its training data:
+            </p>
+            <pre><code class = 'javascript'>const users = [
+    { name: "John Doe", email: "john.doe@example.com" },
+    { name: "Jane Smith", email: "jane.smith@example.com" }
+];
+
+const testValue = "foo";
+const anotherValue = "bar";
+const sampleText = "Lorem ipsum dolor sit amet";</code></pre>
+            <p>"John Doe," "jane.smith@example.com," "foo/bar," and Lorem Ipsum text are all extremely common LLM go-to placeholders. They're not wrong to use, plenty of humans use them too, but a whole project built entirely out of these exact stand-ins, with no personal touch anywhere (a friend's actual name, an inside joke, the coder's own school or town), is worth a second look.</p>
+
+            <br>
+            <h4 id="textbook-unit-test-structure">
+                Textbook unit test structure
+            </h4>
+            <p>
+                When an LLM writes tests, it tends to reach for the exact "Arrange, Act, Assert" structure taught in testing courses, labeled with those exact words, for even the simplest possible test:
+            </p>
+            <pre><code class = 'javascript'>test("adds two numbers correctly", () =&gt; {
+    // Arrange
+    const a = 2;
+    const b = 3;
+
+    // Act
+    const result = add(a, b);
+
+    // Assert
+    expect(result).toBe(5);
+});</code></pre>
+            <p>For a one-line function like <code style = "font-family: 'Google Sans Code';">add</code>, most people just write <code style = "font-family: 'Google Sans Code';">expect(add(2, 3)).toBe(5);</code> and move on. Labeling three single-line sections of a four-line test with their formal testing-methodology names is a strong sign the test was generated from "how tests should be structured" rather than written by someone just trying to check that their function works.</p>
+
+            <br>
+            <h4 id="debug-logging-style">
+                Debug logging style
+            </h4>
+            <p>
+                Console output is another place where LLM habits are easy to spot, especially when a person is troubleshooting rather than presenting finished work.
+            </p>
+            <h5>A) Emoji-prefixed logs:</h5>
+            <pre><code class = 'javascript'>console.log("✅ User successfully logged in:", user);
+console.log("❌ Error fetching data:", error);
+console.log("🔄 Retrying request...");</code></pre>
+            <p>This is an extremely common LLM habit when asked to "add some logging" or "help me debug this", it reaches for a little emoji glossary (checkmark for success, X for failure, arrows for loading) that most people simply don't bother typing out by hand while chasing down a bug at 1am.</p>
+            <h5>B) Beautifully formatted debug output:</h5>
+            <pre><code class = 'javascript'>console.log("========================================");
+console.log("DEBUG: Starting data processing pipeline");
+console.log("========================================");</code></pre>
+            <p>Real debugging output tends to be messy and disposable, quick <code style = "font-family: 'Google Sans Code';">console.log("here")</code> and <code style = "font-family: 'Google Sans Code';">console.log(x)</code> statements that get deleted the moment the bug is found. Elaborately formatted, boxed-in debug banners are a sign the "debugging" was generated rather than lived through.</p>
+            <h5>C) Reflexive pretty-printing:</h5>
+            <p>
+                When it's time to inspect an object while debugging, LLMs consistently reach for the same two "nice" tools instead of the plain, quick option most people grab first:
+            </p>
+            <pre><code class = 'javascript'>console.log(JSON.stringify(user, null, 2));
+console.table(scores);</code></pre>
+            <p>Both of these produce genuinely nicer output, and neither is wrong to use. But someone just trying to eyeball a value mid-debug is far more likely to type the fast, ugly version, <code style = "font-family: 'Google Sans Code';">console.log(user)</code>, and only reach for the fancier formatting once, if ever, when they already know exactly what they're looking for.</p>
+
+        	</section>
+
+        	<section id="group-behavior" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Signs Beyond the Code</h3>
+        	    </div>
+            <h4 id="behavioral-and-process-tells">
+                Behavioral and process tells
+            </h4>
+            <p>
+                Sometimes the strongest evidence isn't in the code at all, it's in how the code arrived.
+            </p>
+            <h5>A) The instant, complete solution:</h5>
+            <p>A working program that appears in one shot with no visible false starts, no leftover commented-out attempts, no half-renamed variables from an earlier version. Real debugging and iteration leaves fingerprints; a clean first draft that already works perfectly is unusual for a beginner.</p>
+            <h5>B) A skill mismatch:</h5>
+            <p>Someone who struggles to explain what a piece of their own code does, or who can't answer a simple follow-up question about why a line is there, is one of the clearest signs, regardless of what the code itself looks like. This is also the fairest way to check, because it tests understanding rather than style.</p>
+            <h5>C) Copy-paste artifacts:</h5>
+            <p>Leftover markdown syntax like stray triple backticks (<code style = "font-family: 'Google Sans Code';">```</code>) or a fenced language tag such as <code style = "font-family: 'Google Sans Code';">javascript</code> pasted directly into a program, left over from copying an answer straight out of a chat interface without cleaning it up.</p>
+
+            <br>
+            <h4 id="a-sudden-shift-in-tone-or-skill-mid-file">
+                A sudden shift in tone or skill mid-file
+            </h4>
+            <p>
+                One of the more subtle tells doesn't live in any single snippet, it lives in the seam between two parts of the same file. If the top of a project reads like a beginner, casual variable names, a couple of typos in comments, some trial and error left in, and then one function partway through suddenly reads like it was lifted from a style guide, flawless naming, textbook structure, formal comments, that seam is worth noticing:
+            </p>
+            <pre><code class = 'javascript'>// stuff for the login page lol
+let usrname = "";
+let pwd = "";
+
+function chekLogin() {
+    if (usrname == "admin") {
+        return true;
+    }
+}
+
+/**
+ * Validates an email address against a standard format.
+ * @param {string} email - The email address to validate.
+ * @returns {boolean} Whether the email is valid.
+ */
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}</code></pre>
+            <p>Same file, same author supposedly, but one function has misspellings and loose comparisons while the very next one has a full JSDoc block and a properly escaped regex. People's skill and care can genuinely grow as they learn, but a jump that sharp, with no rough draft of the polished function anywhere, usually means the polished part came from somewhere else.</p>
+
+        	</section>
+
+        	<section id="group-advanced" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Advanced: How the Engine Actually Writes This Stuff</h3>
+        	    </div>
+            <h4 id="why-the-patterns-happen">
+                Why the patterns happen
+            </h4>
+            <p>
+                Everything above this section describes symptoms. This section is about the mechanism, why an LLM ends up producing those symptoms in the first place. Understanding the "why" makes the whole checklist click a lot harder, and it's also just genuinely interesting.
+            </p>
+            <h5>A) No working-memory limit:</h5>
+            <p>
+                A human forgets exactly how they named something two hundred lines up, and drifts. An LLM re-reads its entire preceding output every single token it generates, it never "forgets" its own naming convention the way a person does. This is the actual root cause behind the "suspiciously perfect consistency" tell mentioned earlier, it isn't that the model is trying harder to stay consistent, it's that forgetting simply isn't something that happens to it the way it happens to us.
+            </p>
+            <h5>B) Autoregressive generation means no revision:</h5>
+            <p>
+                Humans write, delete, rewrite, and leave scars behind, renamed variables, commented-out attempts, a function that used to work differently. An LLM generates strictly left to right, one token after another, and effectively never goes back to revise what it already committed to. A generated file reads like a single confident first pass with no drafts underneath it, even in cases where the model itself would have written something differently given a second attempt.
+            </p>
+            <h5>C) Training data skew:</h5>
+            <p>
+                The reason a model reaches for Arrange/Act/Assert, labeled import groups, or a checkmark-bulleted features list isn't that it's "trying to sound like a textbook." It's that polished tutorials, official docs, and clean open-source repositories are wildly overrepresented in what it learned from, relative to how an actual messy solo project looks. The model isn't performing politeness, it's reproducing the statistical center of its training distribution, and that center happens to be a lot tidier than real, lived-in code.
+            </p>
+
+            <br>
+            <h4 id="dependency-order-writing">
+                Order-of-writing structure
+            </h4>
+            <p>
+                This one is subtle but reliable once you know to look for it. Humans tend to write the "main" logic first and pull helper functions out later, often mid-file, out of order, with the important stuff sitting at odd depths because it was written first and reorganized around later, if it ever gets reorganized at all.
+            </p>
+            <p>
+                LLMs tend to output files in dependency order instead, constants and types first, then small helpers, then the thing that actually uses them, because that ordering is the easiest one to generate coherently one token at a time without needing to reference something that hasn't been written yet:
+            </p>
+            <pre><code class = 'javascript'>const MAX_LIVES = 3;
+const GRAVITY = 0.6;
+
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+function applyGravity(player) {
+    player.vy = clamp(player.vy + GRAVITY, -20, 20);
+}
+
+function updatePlayer(player) {
+    applyGravity(player);
+    player.y += player.vy;
+}</code></pre>
+            <p>
+                Every single thing is defined before it's ever referenced, top to bottom, with zero forward references anywhere in the file. A person building this same system tends to write <code style = "font-family: 'Google Sans Code';">updatePlayer</code> first, realize partway through that they need gravity handling, and bolt <code style = "font-family: 'Google Sans Code';">applyGravity</code> on wherever there happened to be room, sometimes even below the function that calls it. A file that reads top-to-bottom like a clean dependency graph is a structural tell all on its own, independent of anything happening on any single line.
+            </p>
+
+            <br>
+            <h4 id="css-and-html-tells">
+                CSS and HTML-specific tells
+            </h4>
+            <p>
+                Since a lot of KA projects are visual, it's worth calling out a few tells specific to markup and styling rather than logic:
+            </p>
+            <ul class = "bullet">
+                <li>Suspiciously uniform border-radius, box-shadow, and transition values applied to nearly every element "for consistency," even ones that didn't need it</li>
+                <li>Reflexive aria-label or role attributes added to elements where there's no real accessibility concern to address</li>
+                <li>A small, instantly recognizable palette of "safe" hex colors reused across unrelated generated pages</li>
+                <li>Flexbox or grid properties written in the exact same textbook order every time: display, then justify-content, then align-items</li>
+            </ul>
+            <p>
+                That palette point is worth sitting with for a second, ironically, a couple of the exact blues and greens that show up constantly in generated CSS aren't far off from the theme colors used throughout this very page. Worth keeping in mind before pointing fingers at someone else's color choices!
+            </p>
+
+            <br>
+            <h4 id="tokenization-artifacts">
+                Tokenization artifacts
+            </h4>
+            <p>
+                This is a genuinely low-level one. LLMs don't read or write text character by character, they work in tokens, chunks of text that a tokenizer breaks the input into beforehand. That machinery leaves fingerprints in the output that go beyond simple style preference.
+            </p>
+            <h5>A) Trailing commas, everywhere they're legal:</h5>
+            <pre><code class = 'javascript'>const settings = {
+    width: 800,
+    height: 600,
+    fullscreen: false,
+};
+
+const colors = [
+    "red",
+    "green",
+    "blue",
+];</code></pre>
+            <p>
+                Trailing commas after the final item in a multi-line array or object are valid JavaScript and treated as a linter-enforced best practice in a lot of modern codebases, since they make future diffs cleaner. LLMs apply this rule with total consistency because it's baked into the formatted code they were trained on, most of which passed through a linter or formatter like Prettier before ever being published. A beginner typing this out by hand almost never adds a comma after the last item, there's nothing left to separate, so it doesn't occur to them, and a good number will even leave a trailing comma out reflexively because older JavaScript engines used to choke on it.
+            </p>
+            <h5>B) Perfectly uniform operator spacing:</h5>
+            <pre><code class = 'javascript'>const total = price * quantity + shippingCost - discount;</code></pre>
+            <p>
+                A single space on both sides of every operator, every single time, no exceptions, no cramming <code style = "font-family: 'Google Sans Code';">a+b</code> together when typing fast, no inconsistent spacing around a modulo or a ternary. Humans typing quickly are inconsistent here in small, unconscious ways, tightening up spacing around an operator they type often, leaving extra space around one they don't. A model generating a whole expression at once in a single pass doesn't have typing speed or muscle memory to be inconsistent with.
+            </p>
+
+            <br>
+            <h4 id="self-closing-void-elements">
+                The self-closing void element habit
+            </h4>
+            <p>
+                HTML5 doesn't require void elements, tags with no closing tag and no children, like <code style = "font-family: 'Google Sans Code';">&lt;br&gt;</code>, <code style = "font-family: 'Google Sans Code';">&lt;img&gt;</code>, or <code style = "font-family: 'Google Sans Code';">&lt;input&gt;</code>, to be self-closed with a trailing slash. That requirement is a holdover from XHTML, an older, stricter dialect of HTML that mattered a lot more a decade or two ago. LLMs still self-close these constantly:
+            </p>
+            <pre><code class = 'ht'>&lt;img src="thumbnail.png" alt="A thumbnail preview" /&gt;
+&lt;br /&gt;
+&lt;input type="text" name="username" /&gt;</code></pre>
+            <p>
+                Compare that to how HTML5 actually expects it, and how most people who learned from a modern tutorial actually write it, with no trailing slash at all:
+            </p>
+            <pre><code class = 'ht'>&lt;img src="thumbnail.png" alt="A thumbnail preview"&gt;
+&lt;br&gt;
+&lt;input type="text" name="username"&gt;</code></pre>
+            <p>
+                Neither version is wrong, browsers happily accept both, but the self-closing version is a small, telling artifact of a huge amount of older XHTML-era documentation and boilerplate still sitting in a model's training data, quietly outvoting the more modern convention.
+            </p>
+
+            <br>
+            <h4 id="landmark-tag-perfection">
+                Landmark and semantic tag perfection
+            </h4>
+            <p>
+                HTML5 introduced semantic landmark elements, <code style = "font-family: 'Google Sans Code';">&lt;header&gt;</code>, <code style = "font-family: 'Google Sans Code';">&lt;nav&gt;</code>, <code style = "font-family: 'Google Sans Code';">&lt;main&gt;</code>, <code style = "font-family: 'Google Sans Code';">&lt;article&gt;</code>, <code style = "font-family: 'Google Sans Code';">&lt;section&gt;</code>, <code style = "font-family: 'Google Sans Code';">&lt;footer&gt;</code>, that carry real meaning for screen readers and the browser's accessibility tree, on top of being plain containers. LLMs reach for the spec-correct one every single time, with the exact nesting a strict accessibility audit would approve of, even on a tiny single-purpose page that will never be read by anyone but its author:
+            </p>
+            <pre><code class = 'ht'>&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;My Project&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;About&lt;/h2&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;Made in 2026&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+            <p>
+                A beginner reaches for <code style = "font-family: 'Google Sans Code';">&lt;div&gt;</code> for almost everything instead, since that's usually what gets taught first, and semantic tags tend to show up unevenly later, once a course or tutorial specifically calls them out, not applied with textbook correctness from the very first page someone ever builds. Perfect landmark structure on someone's very first project is the same "too disciplined too early" signal covered elsewhere in this document, just showing up in markup instead of in JavaScript.
+            </p>
+
+            <br>
+            <h4 id="regex-over-engineering">
+                Regex over-engineering
+            </h4>
+            <p>
+                LLMs tend to write "textbook correct" regular expressions, properly anchored, properly escaped, sometimes handling edge cases nobody actually asked for:
+            </p>
+            <pre><code class = 'javascript'>const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;</code></pre>
+            <p>
+                A human in the middle of a project is far more likely to copy a rough regex from an old project or a forum post and move on with something slightly off, missing an anchor, a stray unescaped character, a pattern that technically over-matches. A regex that's suspiciously textbook-correct on the very first attempt, especially from someone who otherwise seems like a beginner, is worth a second look.
+            </p>
+
+            <br>
+            <h4 id="the-khan-academy-effect">
+                The Khan Academy effect
+            </h4>
+            <p>
+                Everything above works on any codebase, anywhere. Being on Khan Academy specifically gives us one more advantage on top of it, though: we already know exactly what a hand-built KA webpage template looks like, so a suspicious project can be held right up against it. Take this doctype-and-head block, generated by asking an LLM for "a webpage that imports the Lato font from Google Fonts":
+            </p>
+            <pre><code class = 'ht'>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;New Webpage&lt;/title&gt;
+&lt;!-- Google Font Import: Lato --&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Lato" rel="stylesheet"&gt;
+&lt;/head&gt;</code></pre>
+            <p>
+                Looks solid, doesn't it? That's because it's textbook perfect, straight out of the Google Fonts documentation. Now compare it to a Khan Academy webpage template with a font imported the exact same way, typed by hand:
+            </p>
+            <pre><code class = 'ht'>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+        &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+        &lt;link href="https://fonts.googleapis.com/css2?family=Lato" rel="stylesheet"&gt;
+        &lt;title&gt;New webpage&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>
+                Same font, same two preconnect links, same general idea, and yet a few small differences give the first one away instantly:
+            </p>
+            <ul class = "bullet">
+                <li>The LLM capitalized <code style = "font-family: 'Google Sans Code';">"UTF-8"</code>, even though the attribute is case-insensitive and nobody typing it by hand tends to reach for the shift key twice. It's the standard way of writing out the acronym in documentation, so that's what gets reproduced, capital letters and all.</li>
+                <li>The LLM added a viewport meta tag. That's useful on a normal website that has to reflow for phones and tablets, but meaningless on Khan Academy, where the canvas is a fixed size you set yourself and it never resizes for the viewer's screen. Seeing one on a KA project is either a copy-pasted tutorial habit or a straight generation, and neither is a great sign.</li>
+                <li>The LLM left <code style = "font-family: 'Google Sans Code';">&lt;head&gt;</code> and <code style = "font-family: 'Google Sans Code';">&lt;body&gt;</code> flush against the left margin instead of indenting them under <code style = "font-family: 'Google Sans Code';">&lt;html&gt;</code>. Asked why, a model will explain that it's keeping the document's top-level structural elements visually aligned to the far left as a cue for where the highest level of the document starts. It's a real convention, just not the one most people are taught, and not the one this very page is written with either.</li>
+            </ul>
+            <p>
+                None of those three prove anything on their own. Stacked together on a single boilerplate block that a beginner supposedly typed from memory, though, they stop looking like coincidence and start looking like a template you can actually check a suspicious project against, instead of just going on vibes.
+            </p>
+
+            <br>
+            <h4 id="a-measurable-heuristic">
+                A measurable heuristic
+            </h4>
+            <p>
+                Most of this document is about vibes, admittedly educated vibes, but vibes. If you want something closer to an actual number, here's one: take the standard deviation of blank-line gaps across a file, or the standard deviation of line lengths. Generated code tends to land on unusually low variance compared to human-written code of a similar length and complexity, because the model is applying the same formatting instincts evenly across the whole file rather than reacting to each part individually the way a person naturally does.
+            </p>
+            <p>
+                It's not a perfect signal on its own, short files and simple programs will always have low variance no matter who wrote them, but paired with a couple of the other tells above, it's a nice way to turn "this feels too clean" into something you can actually point to.
+            </p>
+            <h5>Try it yourself:</h5>
+            <p>Paste in a JS snippet below and check the blank-line and line-length variance for yourself:</p>
+            <textarea id="varianceInput" rows="10" style="width:100%;font-family:'Google Sans Code';font-size:14px;background:#282a36;color:#f8f8f2;border-radius:8px;border:none;padding:10px;" placeholder="Paste a JS snippet here...">function getDiscount(user) {
+    if (!user) {
+        return 0;
+    }
+    if (!user.isMember) {
+        return 0;
+    }
+    if (user.yearsActive < 1) {
+        return 0;
+    }
+    return 0.1;
+}</textarea>
+            <p style="text-indent:0px;margin-top:10px;">
+                <button onclick="computeVariance();" style="font-family:'Google Sans Code';background:#4F98CA;color:#fff;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;">Analyze</button>
+            </p>
+            <p id="varianceOutput" style="font-family:'Google Sans Code';font-size:15px;text-indent:0px;white-space:pre-wrap;"></p>
+            <script>
+                function computeVariance() {
+                    const text = document.getElementById('varianceInput').value;
+                    const lines = text.split('\n');
+
+                    // Blank-line gap analysis: measure distance between consecutive blank lines
+                    const blankIndices = [];
+                    lines.forEach((line, i) => {
+                        if (line.trim() === '') blankIndices.push(i);
+                    });
+                    const gaps = [];
+                    for (let i = 1; i < blankIndices.length; i++) {
+                        gaps.push(blankIndices[i] - blankIndices[i - 1]);
+                    }
+
+                    // Line-length analysis: only count non-blank lines
+                    const lengths = lines.filter(l => l.trim() !== '').map(l => l.length);
+
+                    function stdDev(arr) {
+                        if (arr.length === 0) return null;
+                        const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
+                        const variance = arr.reduce((a, b) => a + (b - mean) ** 2, 0) / arr.length;
+                        return Math.sqrt(variance);
+                    }
+
+                    const gapStdDev = stdDev(gaps);
+                    const lengthStdDev = stdDev(lengths);
+
+                    let output = "Non-blank lines: " + lengths.length + "\n";
+                    output += "Line-length std dev: " + (lengthStdDev !== null ? lengthStdDev.toFixed(2) : "N/A (too few lines)") + "\n";
+                    output += "Blank-line gap std dev: " + (gapStdDev !== null ? gapStdDev.toFixed(2) : "N/A (fewer than 2 blank lines found)") + "\n\n";
+                    output += "Lower numbers can suggest a more uniform, generated rhythm. This is a rough signal, not proof, use it alongside the other tells on this page.";
+
+                    document.getElementById('varianceOutput').innerText = output;
+                }
+            </script>
+
+        	</section>
+            <br><br>
+        	<section id="group-checklist" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Conclusion</h3>
+        	    </div>
+            <br>
+            <p>Idk what to say here lol </p>
+            
+            <br><br>
+        	</section>
+
+        	<section id="group-quiz" class="category-section">
+        	    <div class="category-heading">
+        	        <h3>Test Yourself</h3>
+        	    </div>
+            <h4 id="the-quiz">
+                Which one is generated?
+            </h4>
+            <p>
+                None of these twenty pairs have a single comment in them, on purpose, because comments are the easy tell and this page has already spent a lot of words on them. Everything here has to be caught by structure, naming, and habit alone, which is a lot closer to what it's actually like reading a real file. Click a snippet in each pair to pick the one you think came from an LLM, then hit "Reveal answers" at the bottom for the score and the reasoning behind each one.
+            </p>
+
+            <div class="quiz-card" data-answer="A">
+                <h5>1. Saving a high score to a server</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">async function saveScore(score) {
+  try {
+    await fetch("/api/scores", {
+      method: "POST",
+      body: JSON.stringify({ score })
+    });
+  } catch (err) {
+    console.log("Something went wrong");
+  }
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">async function saveScore(score) {
+  const res = await fetch("/api/scores", {
+    method: "POST",
+    body: JSON.stringify({ score })
+  });
+  if (!res.ok) throw new Error(`Score save failed with status ${res.status}`);
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. It catches the failure and hands back a message so generic, "Something went wrong", that it could sit in any catch block in any program. Snippet B lets the specific failure speak for itself, the actual status code baked right into the message, the kind of detail someone leaves behind after staring at the real error while it happened to them.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>2. Checking if an order ships free</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function canShipFree(order) {
+  if (order) {
+    if (order.total >= 50) {
+      if (order.country === "US") {
+        return true;
+      }
+    }
+  }
+  return false;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function canShipFree(order) {
+  if (!order) return false;
+  if (order.total < 50) return false;
+  if (order.country !== "US") return false;
+  return true;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one. "Return early instead of nesting" is genuinely good advice, and an LLM applies it with textbook precision even on logic this small. Snippet A's nested staircase is clumsier, but it's exactly how someone working through the problem for the first time tends to naturally write it.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>3. Formatting a "city, state" string</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function getCity(location) {
+  return location.split(", ")[0];
+}
+
+function getState(location) {
+  return location.split(", ")[1];
+}
+
+function formatLocation(location) {
+  return `${getCity(location)}, ${getState(location)}`;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function formatLocation(location) {
+  const [city, state] = location.split(", ");
+  return `${city}, ${state}`;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. Splitting a one-line split into two extra helper functions, each called from exactly one place, is over-modularization, applying "small single-responsibility functions" advice reflexively instead of when it's actually earned. Snippet B just destructures and moves on, which is what most people do for something this small.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>4. Two unrelated data-fetching helpers</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function getProductInfo() {
+  const data = fetchProduct();
+  return data;
+}
+
+function getOrderInfo() {
+  const data = fetchOrder();
+  return data;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function getProductInfo() {
+  const product = fetchProduct();
+  return product;
+}
+
+function getOrderInfo() {
+  const order = fetchOrder();
+  return order;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. Two completely different kinds of information both get stuffed into a variable just called <code style="font-family: 'Google Sans Code';">data</code>, the statistically safest, most generic name for "a thing that holds a thing." Snippet B reaches for the specific word each function is actually thinking in, which is what someone working across their own project tends to do.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>5. Testing a capitalize function</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">test("capitalizes the first letter", () => {
+  expect(capitalize("cat")).toBe("Cat");
+});</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">test("capitalizes the first letter", () => {
+  const input = "cat";
+
+  const output = capitalize(input);
+
+  expect(output).toBe("Cat");
+});</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one, laid out in the exact Arrange, Act, Assert shape taught in testing courses, just without the labels this time. Stretching a one-line test into three separate stages is a strong sign it came from "how tests should be structured" rather than from someone quickly checking their own function works, which is closer to Snippet A.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>6. Debugging a shopping cart total</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">console.log("----------------------------------------");
+console.log("DEBUG: Verifying cart totals");
+console.log("----------------------------------------");
+console.log(JSON.stringify(cart, null, 2));</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">console.log("cart check");
+console.log(cart);</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. Real debugging output tends to be messy and disposable, the quick <code style="font-family: 'Google Sans Code';">console.log(x)</code> in Snippet B that gets deleted the moment the bug is found. An elaborately boxed-in debug banner paired with pretty-printed JSON is a sign the "debugging" was generated rather than lived through in a hurry.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>7. Imports for a small game script</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">import { playSound } from './audio';
+import Player from './Player';
+import lodash from 'lodash';
+import Enemy from './Enemy';</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">import lodash from 'lodash';
+
+import Enemy from './Enemy';
+import Player from './Player';
+
+import { playSound } from './audio';</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one. Grouping third-party, local, and utility imports into their own tidy, alphabetized blocks is genuinely good practice on a large codebase, but seeing it applied this precisely on a small script is more often a sign of generation than of a beginner independently discovering a style-guide convention. Snippet A's order, whatever got typed as it was needed, is the more natural human default.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>8. Placeholder items in a demo list</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">const items = [
+  { id: 1, label: "foo" },
+  { id: 2, label: "bar" }
+];</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">const items = [
+  { id: 1, label: "leftover pizza" },
+  { id: 2, label: "printer paper" }
+];</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. "foo" and "bar" are the exact go-to placeholders that show up constantly across an LLM's training data. Snippet B has a personal touch to it, actual specific items someone would really put on a list, rather than the same two throwaway words every demo reaches for.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>9. Summing an array of scores</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function sumScores(scores) {
+  const total = scores.reduce((acc, curr) => acc + curr, 0);
+  return total;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function sumScores(scores) {
+  let total = 0;
+  for (let i = 0; i < scores.length; i++) {
+    total += scores[i];
+  }
+  return total;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. Every variable that's never reassigned is a <code style="font-family: 'Google Sans Code';">const</code>, applied with total consistency, right down to reaching for <code style="font-family: 'Google Sans Code';">reduce</code> over a plain loop. Snippet B's <code style="font-family: 'Google Sans Code';">let total = 0</code> and manual loop is the more ordinary first-draft instinct, the distinction between <code style="font-family: 'Google Sans Code';">let</code> and <code style="font-family: 'Google Sans Code';">const</code> hasn't fully hardened into a reflex yet.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>10. Reading a theme from a config object</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function getTheme(config) {
+  var theme = config && config.ui && config.ui.theme ? config.ui.theme : "light";
+  return theme;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function getTheme(config) {
+  const { ui: { theme } = {} } = config ?? {};
+  return theme ?? "light";
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one. Nested destructuring with a fallback and nullish coalescing are stacked together and used flawlessly in two lines. Neither is a red flag on its own, but that density and fluency, especially compared to how plainly Snippet A checks for the same thing with an old-school chain of <code style="font-family: 'Google Sans Code';">&&</code>, is what stands out.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>11. Finding the minimum value in an array</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function getMin(arr) {
+  let m = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < m) m = arr[i];
+  }
+  return m;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function getMin(arr) {
+  let minimumValue = arr[0];
+  for (let index = 1; index < arr.length; index++) {
+    if (arr[index] < minimumValue) minimumValue = arr[index];
+  }
+  return minimumValue;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one. It names things the way a computer science course would rather than the way someone typing under a deadline would, LLMs rarely abbreviate unless told to. Snippet A's <code style="font-family: 'Google Sans Code';">m</code> and <code style="font-family: 'Google Sans Code';">i</code> are the kind of shorthand a person reaches for without thinking twice.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>12. Naming handlers for an audio player</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">function handlePlay(event) { audio.play(); }
+function handlePause(event) { audio.pause(); }
+function handleVolumeChange(event) { audio.volume = event.target.value; }</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">function playTrack(event) { audio.play(); }
+function pauseTrack(event) { audio.pause(); }
+function adjustVolume(event) { audio.volume = event.target.value; }</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. There's nothing wrong with <code style="font-family: 'Google Sans Code';">handlePlay</code> on its own, plenty of humans use names like it too, but when every single handler in the file follows the exact same generic <code style="font-family: 'Google Sans Code';">handleX</code> pattern with zero exceptions, it starts to look copied straight out of a tutorial. Snippet B's names are tied to what the project actually does, the kind of naming that comes from someone working through their own specific problem.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>13. Two status flags for a websocket connection</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">let saving = false;
+let connected = false;</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">let isCurrentlySavingChanges = false;
+let hasEstablishedWebsocketConnection = false;</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one. Verbose, self-documenting boolean names like <code style="font-family: 'Google Sans Code';">hasEstablishedWebsocketConnection</code> are an LLM favorite, reading like it's trying to be self-documenting to a fault. A person just trying to track two flags is far more likely to write the short version in Snippet A and move on.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>14. Making a submit button full width</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">#submitBtn {
+  width: 100% !important;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">.submit-btn {
+  width: 100%;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one, unusually disciplined, low-specificity CSS with no ID selectors and no <code style="font-family: 'Google Sans Code';">!important</code> anywhere, because that's treated as a last resort in most style guides an LLM was trained on. Snippet A is how someone actually fighting the cascade in dev tools tends to solve it, reach for the blunt tool that works and move on.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>15. Setting the gap in a toolbar</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">.toolbar {
+  gap: 12px;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">:root {
+  --gap-sm: 12px;
+}
+
+.toolbar {
+  gap: var(--gap-sm);
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one. Defining a formal custom property for a value that's only ever used once, on a single small page, is systemizing something before there's any actual repetition to justify it, a very "trained on best practices" instinct. Snippet A just types the pixel value directly wherever it's needed, which is what most people do until a value actually gets reused.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>16. Stacking a dropdown above the header</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">.site-header {
+  z-index: 10;
+}
+
+.dropdown {
+  z-index: 20;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">.site-header {
+  z-index: 1;
+}
+
+.dropdown {
+  z-index: 999;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one, a small, evenly spaced scale with room left between the numbers, as if planning for layers that don't exist yet. Snippet B is the blunter, more common human approach, bump one number until the dropdown that's misbehaving finally shows up on top, with no scale or plan behind it.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>17. An album cover and a subscribe checkbox</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="ht">&lt;img src="cover.jpg" alt="Album cover" /&gt;
+&lt;input type="checkbox" name="subscribe" /&gt;</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="ht">&lt;img src="cover.jpg" alt="Album cover"&gt;
+&lt;input type="checkbox" name="subscribe"&gt;</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. The trailing slash on void elements is a holdover from XHTML that HTML5 never required, but it's still a quiet artifact of a huge amount of older documentation sitting in a model's training data. Snippet B, with no slash at all, is how HTML5 actually expects it and how most people who learned from a modern tutorial write it.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>18. Laying out a recipe page</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="ht">&lt;div class="top"&gt;
+    &lt;h1&gt;Recipe Box&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div class="content"&gt;
+    &lt;div class="ingredients"&gt;
+        &lt;h2&gt;Ingredients&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="ht">&lt;header&gt;
+    &lt;h1&gt;Recipe Box&lt;/h1&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Ingredients&lt;/h2&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one, spec-correct semantic landmarks with the exact nesting a strict accessibility audit would approve of, on a tiny single-purpose page that will never be read by anyone but its author. Snippet A's plain, generically classed <code style="font-family: 'Google Sans Code';">div</code>s are what most people reach for before they've ever thought about screen readers.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="A">
+                <h5>19. Rounding a button's corners</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">.button {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">.button {
+  border-radius: 6px;
+}</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet A is the generated one. <code style="font-family: 'Google Sans Code';">border-radius</code> has been fully supported unprefixed for a very long time now, so seeing it prefixed in a brand new project is a small anachronism, a fossil from years of accumulated tutorial content still sitting in a model's training data rather than anything the current web actually requires. Snippet B is what someone writing CSS today, with no memory of ever needing the prefixes, naturally reaches for.</p></div>
+            </div>
+            <div class="quiz-card" data-answer="B">
+                <h5>20. Declaring a player's stats</h5>
+                <div class="quiz-pair">
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet A</p><pre><code class="javascript">const width = 40;
+const height = 120;
+const speed = 6;</code></pre></div>
+                    <div class="quiz-snippet"><p class="quiz-snippet-label">Snippet B</p><pre><code class="javascript">const width  = 40;
+const height = 120;
+const speed  = 6;</code></pre></div>
+                </div>
+                <div class="quiz-verdict"></div>
+                <div class="quiz-explanation"><p>Snippet B is the generated one, every equals sign padded to line up in the same column no matter how long the name before it is. That kind of alignment is trivial for a model generating the whole block at once, but tedious enough that a person typing it by hand almost always just leaves a single space and moves on, which is Snippet A.</p></div>
+            </div>
+            <button id="quizSubmit" onclick="revealQuizAnswers();">Reveal answers</button>
+            <p id="quizScore"></p>
+            
+        	</section>
+
+            <br><br><section><h3>Thank you for sticking around! <3 </h3></section>
+                <br><br><br>
+<!--
+            	<h4>2. The Standard and Personalized effects</h4>
+            	<h4>The naming effect</h4>
+            	<h4>The size effect</h4>
+            	<h4>The generic effect</h4>
+            	<h4>Consistency and personalization effects</h4>
+            	
+        	</section>
+        	
+        	<section style = "margin-top: 20px;">
+        	    <br>
+        	    <br>
+        	    <br>
+        	    <h4>Introduction</h4>
+        	    <p>
+        	        Hello everyone! A few other coders and I have become aware of an issue here on Khan Academy, and that issue is users irresponsibly using <a href = "https://en.wikipedia.org/wiki/Large_language_model">Large Language Models</a> (inaccurately called <a href = "https://en.wikipedia.org/wiki/Artificial_intelligence">Articial Intelligence</a>). These LLM's have become a substitute for actually learning coding, and are becoming a danger to young learners wanting to create coding projects without doing to much work. So today, I am going to teach y'all how to <b>identify LLM generated code.</b> But before I do that I want to give a few thoughts on the subject
+        	    </p>
+        	</section>
+            <section>
+        	    <br>
+        	    <h4>1. Why you shouldn't call it AI</h4>
+        	    <p>
+        	        Many people are being mis-led currently by calling LLMs: AI. The 
+        	        <b>term is misleading at best</b>, overhyping current capabilities (which are mostly complex pattern matching/machine learning) and leading to sci-fi expectations (sentience, human-level thought) instead of focusing on its real-world functions, limitations, and ethical issues like bias and job displacement. Calling it AI shows your lack of knowledge on the subject (as catchy as the acronym is). 
+        	    </p>
+        	    <br>
+        	    <h4>
+        	        2. Why LLMs won't replace programmers
+        	    </h4>
+        	    <p>
+        	        There has been a common misconception in the programming/software engineering world that LLM's are going to replace us all. However LLMs cannot replace humans in many/most areas, because they cannot be held accountable for their actions. But there is something even more critical: <b>LLMs do not have creativity!</b> A LLM could not have come up with the idea to put those shapes up at the top of the page, nor could it have done it the way I imagined it without a lot of prompts. Programming is not just about writing code! Creativity, defining problems, breaking them down, troubleshooting, and effective communication are things that AI cannot and will not ever be able to replicate.
+        	    </p>
+        	    <br>
+        	    <h4>
+        	        3. Why you shouldn't use LLMs here on KA
+        	    </h4>
+        	    <p>
+        	        LLMs are very useful and helpful for debugging and figuring out issues in code (problems that took me 30 minutes to debug now take 5 with the assitance of an LLM), they <b>should not be used to code your programs</b>. Using LLMs to code your entire programs (or a significant portion of them) is not:
+                <ul>
+                    <li>
+                        1. For the betterment of others
+                    </li>
+                    <li>
+                        2. For the furtherment of yours and others learning
+                    </li>
+                    <li>
+                        3. For the benefit of this platform
+                    </li>
+                </ul>
+                Using LLMs to figure out why something doesn't work or for figuring out something complicated like fetching the diagonal traversal of an array, which should have a formulaic, universal solution is an okay use, however generating programs here on KA should not be tolerated, because it is an indirect form of plagerism (code is merely fetched from the network and modfied to fit the prompt, which is what LLMs do). In fact, I strongly encourage you to resist the tempatation of using them (I use a LLM perhaps once a month if at all). Growing your own brain for learning and programming is so much more rewarding and useful for you in the future! 
+        	    </p>
+        	</section>
+        	
+        	
+        	
+        	<br>
+        	<section>
+        	    <h4>Concluding thoughts</h4>
+        	    <br>
+        	    <p>If you do deduce that someone is...</p>
+        	</section>
+        	
+
+        	<pre>
+        	    <code class = 'javascript'>var fov = 90;
+var S = 1/tan(fov/2);
+var far = 10;
+var near = 1;
+var ppm = [
+    [S, 0, 0, 0],
+    [0, S, 0, 0],
+    [0, 0, -far/(far - near), -1],
+    [0, 0, -(far * near)/(far - near), 0]
+];
+
+function f(foo){}
+    </code>
+            </pre>
+-->            
+            <!--Icon thingy-->
+        	<!--<section class = "shapes" style = "bottom: 0px; position: absolute;">
+        	    <p id="icon-bg" style = "height: 190px;"></p>
+        	</section>-->
+        </div>
+        <!--Table of contents panel-->
+        <div id="tocOverlay" onclick="closeTOC();"></div>
+        <button id="tocTab" onclick="toggleTOC();">Contents</button>
+        <div id="tocPanel">
+            <h3 class="toc-title">Table of Contents</h3>
+                <div class="toc-group">
+                    <a href="#group-intro" class="toc-group-label">Introduction</a>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-comments" class="toc-group-label">Comments & Documentation</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#llm-commenting-techniques">LLM commenting techniques</a></li>
+                        <li><a href="#a-few-more-things-to-watch-for">A few more things to watch for</a></li>
+                        <li><a href="#the-overly-polite-comment">The overly polite comment</a></li>
+                        <li><a href="#the-example-usage-comment-block">The "example usage" comment block</a></li>
+                        <li><a href="#perfect-grammar-and-punctuation">Perfect grammar and punctuation</a></li>
+                        <li><a href="#a-few-more-creative-detection-methods">A few more creative ways to catch it</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-naming" class="toc-group-label">Naming & Vocabulary</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#naming-conventions">Naming conventions</a></li>
+                        <li><a href="#a-tiny-overused-vocabulary-of-generic-names">A tiny, overused vocabulary of generic names</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-formatting" class="toc-group-label">Formatting & Visual Patterns</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#the-alignment-phenomenon">The alignment phenomenon</a></li>
+                        <li><a href="#formatting-and-punctuation-tells">Formatting and punctuation tells</a></li>
+                        <li><a href="#the-metronome-blank-line-rhythm">The metronome blank-line rhythm</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-css" class="toc-group-label">CSS & Styling Patterns</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#css-intro">CSS has its own tells</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-structure" class="toc-group-label">Code Structure & Architecture</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#structural-and-architectural-tells">Structural and architectural tells</a></li>
+                        <li><a href="#over-modularization">Over-modularization</a></li>
+                        <li><a href="#guard-clauses-applied-by-the-book">Guard clauses applied by the book</a></li>
+                        <li><a href="#modern-syntax-used-everywhere-all-at-once">Modern syntax used everywhere, all at once</a></li>
+                        <li><a href="#flawless-const-discipline">Flawless const discipline</a></li>
+                        <li><a href="#the-unnecessary-explaining-variable">The unnecessary explaining variable</a></li>
+                        <li><a href="#swallowed-and-generic-error-handling">Swallowed and generic error handling</a></li>
+                        <li><a href="#import-and-module-organization">Import and module organization</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-data-testing" class="toc-group-label">Data, Testing & Debugging</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#textbook-sample-and-dummy-data">Textbook sample and dummy data</a></li>
+                        <li><a href="#textbook-unit-test-structure">Textbook unit test structure</a></li>
+                        <li><a href="#debug-logging-style">Debug logging style</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-behavior" class="toc-group-label">Signs Beyond the Code</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#behavioral-and-process-tells">Behavioral and process tells</a></li>
+                        <li><a href="#a-sudden-shift-in-tone-or-skill-mid-file">A sudden shift in tone or skill mid-file</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-advanced" class="toc-group-label">Advanced: Engine Mechanics</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#why-the-patterns-happen">Why the patterns happen</a></li>
+                        <li><a href="#dependency-order-writing">Order-of-writing structure</a></li>
+                        <li><a href="#css-and-html-tells">CSS and HTML-specific tells</a></li>
+                        <li><a href="#tokenization-artifacts">Tokenization artifacts</a></li>
+                        <li><a href="#self-closing-void-elements">The self-closing void element habit</a></li>
+                        <li><a href="#landmark-tag-perfection">Landmark and semantic tag perfection</a></li>
+                        <li><a href="#regex-over-engineering">Regex over-engineering</a></li>
+                        <li><a href="#the-khan-academy-effect">The Khan Academy effect</a></li>
+                        <li><a href="#a-measurable-heuristic">A measurable heuristic</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-checklist" class="toc-group-label">Conclusion</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#a-quick-checklist">Conclusion</a></li>
+                    </ul>
+                </div>
+                <div class="toc-group">
+                    <a href="#group-quiz" class="toc-group-label">Test Yourself</a>
+                    <ul class="toc-sublist">
+                        <li><a href="#the-quiz">Which one is generated?</a></li>
+                    </ul>
+                </div>
+        </div>
+        <div id = "scrollParent">
+            <button class = "scrollToTop" onClick = "Scroll();">
+                <span class="material-symbols-outlined">
+                    expand_less
+                </span>
+            </button>
+        </div>
+	</body>
+	<!--Syntax highlighting-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js">
+	    
+	</script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+	<!--The shape icon background-->
+	<script type = "module">
+const icons = ["change_history", "circle", "check_box_outline_blank"];
+const colors = ["#272727", "#50D890", "#4F98CA"];
+let text = "";
+for (let i = 0; i < 550; i++) {
+  text += 
+  "<span class='material-symbols-outlined' style = 'color:" + colors[Math.floor(Math.random() * 3)] + ";" + "opacity:" + (1 - (i/450)) + ";" + "font-size:" + 28 + "px;'>" + icons[Math.floor(Math.random() * 3)] + "</span>";
+}
+
+document.getElementById("icon-bg").innerHTML = text;
+    </script>
+    <!--Progress bar-->
+    <script type>
+    (() => {
+        window.addEventListener('scroll', function() {
+            const scrollY = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollY / height) * 100;
+            
+            progressBar.style.width = scrolled + "%";
+            
+            //alert('Current scroll position (Y): ' + scrollY);
+            //alert(scrolled)
+        });
+    })()
+    </script>
+    <!--
+        The Thumbnail Script 2.1.0 12/18/2023 
+        by Bluebird@kaid_157624541333313939750668
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js">
+        
+    </script>
+    <script type>var r=600,s=document.documentElement.clientWidth;window.parent.html2canvas=t=>{try{html2canvas(document.body,{width:s,height:s,useCORS:!0,onclone:t=>t.getAnimations().forEach((t=>{try{t.finish()}catch{}}))}).then((t=>{var e=document.createElement("canvas");e.width=r,e.height=r,e.getContext("2d").drawImage(t,0,0,t.width,t.height,0,0,r,r),window.top.postMessage(e.toDataURL(),"*")})).catch((t=>{alert("Thumbnail Script Error: "+t)}))}catch{window.top.postMessage(document.createElement("canvas").toDataURL(),"*")}};
+    </script>
+    <!-- Removes phantom scrollbar -->
+    <script type>
+      parent.document.body.style.overflowY = 'hidden'
+    </script> 
+    <!--No anchor hashing required-->
+    <script>
+      function Scroll() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      };
+      function Scroll_on_Load() {
+        window.scrollTo({
+          top: 600,
+          behavior: "smooth"
+        });
+      };
+      
+      </script>
+    <!--Table of contents toggle-->
+    <script>
+      function toggleTOC() {
+        document.getElementById('tocPanel').classList.toggle('open');
+        document.getElementById('tocOverlay').classList.toggle('open');
+      }
+      function closeTOC() {
+        document.getElementById('tocPanel').classList.remove('open');
+        document.getElementById('tocOverlay').classList.remove('open');
+      }
+      // Close the panel automatically once a link inside it is clicked
+      document.addEventListener('DOMContentLoaded', function() {
+        var links = document.querySelectorAll('#tocPanel a');
+        links.forEach(function(link) {
+          link.addEventListener('click', function() {
+            setTimeout(closeTOC, 300);
+          });
+        });
+      });
+      </script>
+    <!--Full screen!-->
+    <script type='module'>
+		const openInFullscreen = () => {
+			const w = window.open();
+			w.document.open();
+			w.document.write(`<!doctype html><html>${document.querySelector('html').innerHTML}</html>`);
+			w.document.close();
+		}
+		// get our button
+		const button = document.getElementById('fullscreen');
+		// add the event listener
+		button.addEventListener('click', openInFullscreen);
+	</script>
+    <!--Quiz interaction-->
+    <script>
+      document.querySelectorAll('.quiz-card').forEach(function(card) {
+        var snippets = card.querySelectorAll('.quiz-snippet');
+        snippets.forEach(function(snippet) {
+          snippet.addEventListener('click', function() {
+            snippets.forEach(function(s) { s.classList.remove('selected'); });
+            snippet.classList.add('selected');
+          });
+        });
+      });
+
+      function revealQuizAnswers() {
+        var cards = document.querySelectorAll('.quiz-card');
+        var score = 0;
+        cards.forEach(function(card) {
+          var correctLetter = card.getAttribute('data-answer');
+          var snippets = card.querySelectorAll('.quiz-snippet');
+          var correctSnippet = snippets[correctLetter === 'A' ? 0 : 1];
+          var selectedSnippet = card.querySelector('.quiz-snippet.selected');
+          var verdict = card.querySelector('.quiz-verdict');
+          var explanation = card.querySelector('.quiz-explanation');
+
+          correctSnippet.classList.add('correct-answer');
+
+          if (selectedSnippet) {
+            if (selectedSnippet === correctSnippet) {
+              score++;
+              verdict.textContent = "Correct.";
+              verdict.style.color = '#50D890';
+            } else {
+              selectedSnippet.classList.add('wrong-answer');
+              verdict.textContent = "Not quite.";
+              verdict.style.color = '#e05c5c';
+            }
+          } else {
+            verdict.textContent = "No pick made, here's the answer:";
+            verdict.style.color = '#4F98CA';
+          }
+          verdict.classList.add('show');
+          explanation.classList.add('show');
+        });
+
+        var scoreEl = document.getElementById('quizScore');
+        scoreEl.textContent = "Score: " + score + " / " + cards.length;
+        scoreEl.classList.add('show');
+        document.getElementById('quizSubmit').textContent = "Answers revealed";
+        document.getElementById('quizSubmit').disabled = true;
+      }
+    </script>
+</html>
